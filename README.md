@@ -57,13 +57,18 @@ pip install -v -e .
 
 (2) Prepare data
 
-Download the DOTA dataset from [official website](https://captain-whu.github.io/DOTA/dataset.html), change the diretory in and , and then run the following script `./BboxToolkit/tools/split_configs/dota1_0/ss_trainval.json` `./BboxToolkit/tools/split_configs/dota1_0/ss_test.json`
+Download the DOTA dataset from [official website](https://captain-whu.github.io/DOTA/dataset.html), change the diretory in `./BboxToolkit/tools/split_configs/dota1_0/ss_trainval.json` and `./BboxToolkit/tools/split_configs/dota1_0/ss_test.json`, and then run the following script 
+```
 cd ./BboxToolkit/tools/
 python img_split.py --base_json split_configs/dota1_0/ss_trainval.json
 python img_split.py --base_json split_configs/dota1_0/ss_test.json
+```
+
+Download the DIOR-R dataset from [official website](https://gcheng-nwpu.github.io/)
 
 # Usage
 # Training
+DOTA
 ```
 Single GPU
 python tools/train.py configs/obb/RPGAOD/SR2_ORCNN_r50_dota10_oas.py
@@ -71,9 +76,24 @@ python tools/train.py configs/obb/RPGAOD/SR2_ORCNN_r50_dota10_oas.py
 Multi-GPU
 ./tools/dist_train.py configs/obb/RPGAOD/SR2_ORCNN_r50_dota10_oas.py 4 29500
 ```
+
+DIOR
+```
+Single GPU
+python tools/train.py configs/obb/RPGAOD/SR2_ORCNN_r50_dior10_oas.py
+
+Multi-GPU
+./tools/dist_train.py configs/obb/RPGAOD/SR2_ORCNN_r50_dior10_oas.py 4 29500
+```
 # Testing
+DOTA
 ```
 python tools/test.py configs/obb/RPGAOD/SR2_ORCNN_r50_dota10_oas.py work_dirs/SR2_ORCNN_r50_dota10_oas/epoch_36.pth --format-only --options save_dir=保存文件夹名字
+```
+
+DIOR
+```
+python tools/test.py configs/obb/RPGAOD/SR2_ORCNN_r50_dior10_oas.py work_dirs/SR2_ORCNN_r50_dior10_oas/epoch_36.pth --eval mAP
 ```
 
 We provide the pretrained models as listed below. (Trained on 4 RTX 3090 GPUs, tested on 1 RTX 3090 GPU)
