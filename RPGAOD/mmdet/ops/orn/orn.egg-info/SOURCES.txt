@@ -1,0 +1,17 @@
+README.md
+setup.py
+/root/RPGAOD/mmdet/ops/orn/csrc/vision.cpp
+/root/RPGAOD/mmdet/ops/orn/csrc/cpu/ActiveRotatingFilter_cpu.cpp
+/root/RPGAOD/mmdet/ops/orn/csrc/cpu/RotationInvariantEncoding_cpu.cpp
+/root/RPGAOD/mmdet/ops/orn/csrc/cuda/ActiveRotatingFilter_cuda.cu
+/root/RPGAOD/mmdet/ops/orn/csrc/cuda/RotationInvariantEncoding_cuda.cu
+functions/__init__.py
+functions/active_rotating_filter.py
+functions/rotation_invariant_encoding.py
+functions/rotation_invariant_pooling.py
+modules/ORConv.py
+modules/__init__.py
+orn.egg-info/PKG-INFO
+orn.egg-info/SOURCES.txt
+orn.egg-info/dependency_links.txt
+orn.egg-info/top_level.txt
