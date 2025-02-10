@@ -4,9 +4,15 @@ note: We mainly disclose the code based on RPGAOD here. (i.e. RPGAOD+OAS)
 This article proposes a new direction aware allocator and sampler (OAS) to alleviate the problem of angle periodicity by improving label allocation and sampling strategies. It combines angle and position information to optimize the allocation of positive and negative samples, and adjusts learning weights based on angle differences, thereby significantly improving the performance of the two-stage rotating object detector. The experimental results indicate that OAS can achieve higher detection accuracy on multiple challenging rotating target detection benchmarks without increasing additional costs.
 
 # Motivation
-!(teaser_new.png)
+<div align="center">
+<img src="teaser_new.png" alt="teaser_new" width=500>
+</div>
+
 # Overall method
-!(overview_new.png)
+<div align="center">
+<img src="overview_new.png" alt="overview_new" width=800>
+</div>
+
 # Get Started
 (1) Prepare environment
 ```
@@ -51,7 +57,7 @@ pip install -v -e .
 
 (2) Prepare data
 
-Download the DOTA dataset from [official website](https://captain-whu.github.io/DOTA/dataset.html), change the diretory in and , and then run the following script './BboxToolkit/tools/split_configs/dota1_0/ss_trainval.json' './BboxToolkit/tools/split_configs/dota1_0/ss_test.json'
+Download the DOTA dataset from [official website](https://captain-whu.github.io/DOTA/dataset.html), change the diretory in and , and then run the following script `./BboxToolkit/tools/split_configs/dota1_0/ss_trainval.json` `./BboxToolkit/tools/split_configs/dota1_0/ss_test.json`
 cd ./BboxToolkit/tools/
 python img_split.py --base_json split_configs/dota1_0/ss_trainval.json
 python img_split.py --base_json split_configs/dota1_0/ss_test.json
@@ -66,7 +72,9 @@ Multi-GPU
 ./tools/dist_train.py configs/obb/RPGAOD/SR2_ORCNN_r50_dota10_oas.py 4 29500
 ```
 # Testing
+```
 python tools/test.py configs/obb/RPGAOD/SR2_ORCNN_r50_dota10_oas.py work_dirs/SR2_ORCNN_r50_dota10_oas/epoch_36.pth --format-only --options save_dir=保存文件夹名字
+```
 
 We provide the pretrained models as listed below. (Trained on 4 RTX 3090 GPUs, tested on 1 RTX 3090 GPU)
 | Detector | Dataset | box AP (in paper)| box AP (this repo) | pretrained model & config |
